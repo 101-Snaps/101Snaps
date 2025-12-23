@@ -1,0 +1,587 @@
+﻿:root {
+    --accent: #00d2ff; /* Bright Sky Blue */
+    --accent-hover: #70e1ff;
+    --bg: #0b0e14;
+    --card: rgba(15, 23, 32, 0.6); /* Transparent glass for cards */
+    --muted: #cbd5e1;
+    --radius: 14px;
+    color-scheme: dark;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+body {
+    /* Use your local mountain background image here */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(6px);
+    z-index: 20;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.brand {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%; /* Circle shape */
+    background: #fff;
+    border: 3px solid var(--accent); /* Sky Blue Border around logo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+    .logo img {
+        width: 80%;
+        object-fit: contain;
+    }
+
+/* 101-Snaps Title styling */
+.brand h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--accent); /* Applies Sky Blue to the text name */
+    margin: 0;
+}
+
+nav ul {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cta {
+    background: var(--accent);
+    color: #071021;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+.cta, .btn {
+    box-shadow: 0 8px 25px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+
+/* Hero */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 28px;
+    align-items: center;
+    padding: 40px 0;
+}
+
+    .hero .eyebrow {
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-family: "Playfair Display";
+        font-size: 44px;
+        margin: 8px 0 12px;
+    }
+
+    .hero p {
+        color: var(--muted);
+        max-width: 60ch;
+    }
+
+    .hero .actions {
+        margin-top: 18px;
+        display: flex;
+        gap: 12px;
+    }
+
+
+       
+    /* Hero Text Shadow for readability */
+    .hero h1, .hero p {
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero p {
+        color: #e2e8f0;
+        font-size: 1.1rem;
+    }
+
+/* Primary "Book a shoot" / "Book Now" Buttons */
+.cta, .btn {
+    background: var(--accent);
+    color: #000; /* Dark text for high contrast on light blue */
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+}
+
+    .cta:hover, .btn:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 210, 255, 0.6);
+    }
+
+/* Outline "View Gallery" Button */
+.hero .actions .view-btn {
+    border: 2px solid #fff;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+}
+
+/* Sections */
+section {
+    padding: 40px 0;
+}
+
+h2.section-title {
+    font-family: "Playfair Display";
+    margin: 0 0 18px;
+    font-size: 28px;
+}
+
+/* Gallery */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+    .filters button {
+        background: var(--glass);
+        border: 1px solid rgba(255,255,255,0.04);
+        padding: 8px 12px;
+        border-radius: 10px;
+        color: var(--muted);
+        cursor: pointer;
+    }
+
+        .filters button.active {
+            background: linear-gradient(90deg, var(--accent), #f4a261);
+            color: #071021;
+        }
+    .filters button {
+        transition: all 0.25s ease;
+    }
+
+        /* Hover effect */
+        .filters button:hover {
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        /* Active tab */
+        .filters button.active {
+            background: linear-gradient(90deg, var(--accent), #f4a261);
+            color: #071021;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(231, 111, 81, 0.35);
+        }
+
+/* --- 1. THE SECTION CONTAINER (Blurred & Curved) --- */
+.gallery-group {
+    margin-bottom: 50px;
+    transition: all 0.4s ease;
+    background: var(--card); /* Glass effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Category Heading with a line */
+.group-header {
+    font-family: "Playfair Display";
+    font-size: 22px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--accent); /* Sky blue section titles */
+    font-size: 28px;
+}
+
+    .group-header::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+/* --- 2. THE GRID (Uniform Tiles) --- */
+.gallery-grid {
+    display: grid;
+    /* This ensures columns are at least 200px and expand to fill space */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+
+/* --- THE INDIVIDUAL PICTURE TILES --- */
+.gallery-item {
+    position: relative;
+    /* 1. This forces the container to be a perfect square regardless of image shape */
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+@media (min-width: 1400px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+    .gallery-item img {
+        /* 2. These ensure the image occupies the full space of the square */
+        width: 100%;
+        height: 100%;
+        /* 3. THIS IS THE MAGIC LINE: 
+       It crops the edges of the photo to fit the box instead of stretching it. */
+        object-fit: contain;
+        /* 4. Optional: This ensures the focus stays on the center of the photo */
+        object-position: center;
+        display: block;
+        transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+
+
+        .gallery-item:hover img {
+            transform: scale(1.1); /* Image zooms in slightly inside the box */
+        }
+
+    /* Glassmorphism Label on Hover */
+    .gallery-item .meta {
+        position: absolute;
+        inset: auto 10px 10px 10px;
+        background: rgba(15, 23, 32, 0.7);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #fff;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .gallery-item:hover .meta {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(2,6,23,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 80;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s;
+}
+
+    .lightbox.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .lightbox img {
+        max-width: 92%;
+        max-height: 86%;
+        border-radius: 8px;
+    }
+
+    .lightbox .close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        background: var(--card);
+        cursor: pointer;
+    }
+.lightbox-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    max-width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.lb-img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* Spinner for Lightbox Loading */
+#lbContent:empty::after {
+    content: "Opening Gallery...";
+    color: var(--muted);
+    font-family: "Playfair Display";
+    font-size: 1.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* Packages */
+/* Ensure the grid remains a grid even when filtering */
+.packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* This class will be used if you want a smoother fade effect later */
+.pkg.hide {
+    display: none;
+}
+
+/* Ensure headers always take full width when visible */
+.pkg-header {
+    grid-column: 1 / -1;
+}
+/* Booking */
+form .row {
+    display: flex;
+    gap: 12px;
+}
+
+form input,
+form textarea,
+form select {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 12px;
+    border-radius: 10px;
+    color: inherit;
+    min-height: 44px;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+    /* Dropdown options (the list itself) */
+    form select option {
+        background-color: #0b0e14; /* dark background */
+        color: #ffffff; /* visible text */
+    }
+
+        /* Hover / selected option */
+        form select option:hover,
+        form select option:checked {
+            background-color: var(--accent);
+            color: #071021;
+        }
+
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.small {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.btn {
+    background: var(--accent);
+    color: #071021;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+/* Testimonials */
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+}
+
+.tcard {
+    background: rgba(255, 255, 255, 0.10); /* brighter glass */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 18px;
+    border-radius: 14px;
+    color: #f8fafc;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Optional hover lift */
+.tcard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
+}
+
+}
+
+/* Footer */
+footer {
+    padding: 28px 0;
+    color: var(--muted);
+    border-top: 1px solid rgba(255,255,255,0.02);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+    .brand .logo {
+        width: 46px;
+        height: 46px;
+    }
+}
+/* Styling for the category headers within the grid */
+.pkg-header {
+    grid-column: 1 / -1; /* Makes the header span all columns */
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--glass);
+}
+
+    .pkg-header h3 {
+        font-family: "Playfair Display";
+        color: var(--accent);
+        font-size: 22px;
+        margin: 0;
+    }
+
+/* Ensure the Book button is always at the bottom of the card */
+.pkg {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .pkg .btn {
+        margin-top: 15px;
+        text-align: center;
+    }
+/* Brighter booking form fields */
+form input,
+form textarea,
+form select {
+    background: rgba(255, 255, 255, 0.08); /* brighter glass */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 12px;
+    border-radius: 10px;
+    color: #ffffff;
+    min-height: 44px;
+    backdrop-filter: blur(6px);
+    transition: all 0.25s ease;
+}
+
+    /* Placeholder text */
+    form input::placeholder,
+    form textarea::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Focus state (important for UX) */
+    form input:focus,
+    form textarea:focus,
+    form select:focus {
+        outline: none;
+        border-color: var(--accent);
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.25);
+    }
+
