@@ -8,7 +8,7 @@
     <!-- FONTS -->
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 
 
@@ -146,15 +146,14 @@
                     <div class="gallery-group" data-category="Product Ad">
                         <h3 class="group-header">Product Ad</h3>
                         <div class="gallery-grid">
-                            <div class="gallery-item"><img src="Images/Products/snap41.jpg" alt="snap41"></div>
-                            <div class="gallery-item"><img src="Images/Products/snap42.jpg" alt="snap41"></div>
-                            <div class="gallery-item"><img src="Images/Products/snap43.jpg" alt="snap41"></div>
-                            <div class="gallery-item"><img src="Images/Products/snap43.jpg" alt="snap41"></div>
-                            <div class="gallery-item"><img src="Images/Products/snap44.jpg" alt="snap41"></div>
-                            <div class="gallery-item"><img src="Images/Products/snap45.jpg" alt="snap41"></div>
-                            <div class="gallery-item"><img src="Images/Products/snap46.jpg" alt="snap41"></div>
-                            <div class="gallery-item"><img src="Images/Products/snap47.jpg" alt="snap41"></div>
-                            <div class="gallery-item"><img src="Images/Products/snap48.jpg" alt="snap41"></div>
+                            <div class="gallery-item"><img src="Images/Products/snap41.dng" alt="snap41"></div>
+                            <div class="gallery-item"><img src="Images/Products/snap42.dng" alt="snap42"></div>
+                            <div class="gallery-item"><img src="Images/Products/snap43.dng" alt="snap43"></div>
+                            <div class="gallery-item"><img src="Images/Products/snap44.dng" alt="snap44"></div>
+                            <div class="gallery-item"><img src="Images/Products/snap45.dng" alt="snap45"></div>
+                            <div class="gallery-item"><img src="Images/Products/snap46.dng" alt="snap46"></div>
+                            <div class="gallery-item"><img src="Images/Products/snap47.dng" alt="snap47"></div>
+                            <div class="gallery-item"><img src="Images/Products/snap48.dng" alt="snap48"></div>
                         </div>
                     </div>
                 </div>
@@ -398,124 +397,65 @@
         <!-- CONTACT & REVIEWS -->
         <section id="contact">
             <h2 class="section-title">Contact & Reviews</h2>
-
             <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:16px">
-
-                <!-- LEFT -->
                 <div>
-                    <!-- REVIEW FORM -->
-                    <form id="contactForm" action="https://formsubmit.co/makhafola.101snaps@gmail.com" method="POST">
-                        
-                        <input type="hidden" name="_subject" value="New Photography Review!">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-
+                    <form id="contactForm">
                         <div>
                             <label for="cname">Name</label>
-                            <input id="cname" name="Name" type="text" required>
+                            <input id="cname" name="name">
                         </div>
-
                         <div>
                             <label for="cemail">Email</label>
-                            <input id="cemail" name="Email" type="email" required>
+                            <input id="cemail" name="email" type="email">
                         </div>
-
-                        <div>
-                            <label for="rating">Rating</label>
-                            <select id="rating" name="Rating" required>
-                                <option value="">Select rating</option>
-                                <option value="5 Stars">★★★★★</option>
-                                <option value="4 Stars">★★★★☆</option>
-                                <option value="3 Stars">★★★☆☆</option>
-                            </select>
-                        </div>
-
                         <div>
                             <label for="review">Review</label>
-                            <textarea id="review" name="Review_Message" rows="4" placeholder="Tell others about your experience" required></textarea>
+                            <textarea id="review" name="review" rows="4" placeholder="Tell others about your experience"></textarea>
                         </div>
-
-                        <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+                        <div style="display:flex;gap:8px;margin-top:8px">
                             <button type="submit" class="btn">Send Review</button>
-                            <div class="small">Reviews are approved before being published.</div>
+                            <div class="small">Reviews will appear publicly after approval.</div>
                         </div>
                     </form>
 
-                    <!-- TESTIMONIALS -->
-                    <div style="margin-top:22px">
+                    <div style="margin-top:18px">
                         <h3 class="section-title">What clients say</h3>
-
                         <div class="testimonials" id="testimonials">
-
                             <div class="tcard">
-                                <div class="stars">★★★★★</div>
-                                <p>
-                                    Mahlatse captured every important moment beautifully.
-                                    Very professional and easy to work with.
-                                </p>
-                                <div class="small">
-                                    — Lerato M., Wedding · June 2024
-                                </div>
+                                <strong>“Mahlatse captured our day perfectly — we couldn’t be happier.”</strong>
+                                <div class="small" style="margin-top:10px">— Lerato, Wedding</div>
                             </div>
-
                             <div class="tcard">
-                                <div class="stars">★★★★☆</div>
-                                <p>
-                                    Quick turnaround time and great quality photos.
-                                    Will definitely book again.
-                                </p>
-                                <div class="small">
-                                    — Sipho K., Family Shoot · March 2024
-                                </div>
+                                <strong>“Quick, professional, and the photos looked incredible.”</strong>
+                                <div class="small" style="margin-top:10px">— Sipho, Family shoot</div>
                             </div>
-
-                            <div class="tcard">
-                                <div class="stars">★★★★★</div>
-                                <p>
-                                    Friendly, patient, and very creative.
-                                    The graduation photos came out amazing.
-                                </p>
-                                <div class="small">
-                                    — Thando N., Graduation · April 2024
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="small" style="margin-top:10px">
-                            ✔ Reviews collected from verified clients (WhatsApp & Instagram)
                         </div>
                     </div>
                 </div>
 
-                <!-- RIGHT -->
-                <aside style="background:var(--card);padding:12px;border-radius:12px">
-                    <h4 style="margin-top:0">Studio</h4>
-                    <div class="small">Pretoria, South Africa</div>
-
-                    <div style="height:10px"></div>
-
-                    <div style="display:flex;gap:8px;margin-top:8px">
-                        <a class="btn" href="https://wa.me/2760XXXXXXX" target="_blank">
-                            WhatsApp
+                <aside style="background: var(--card); padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <h4 style="margin-top: 0; color: var(--accent); font-size: 1.2rem;">Studio</h4>
+                    <div class="small" style="display: flex; align-items: center; gap: 8px; margin-bottom: 15px; opacity: 0.8;">
+                        <i class="fa-solid fa-location-dot"></i> 123 Studio Road, Pretoria
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                        <a class="btn" href="https://wa.me/27647293929" target="_blank" style="display: flex; align-items: center; gap: 8px; text-decoration: none; background: #25D366; color: white; padding: 8px 16px; border-radius: 8px;">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
                         </a>
-                        <a class="btn" href="mailto:hello@mahlatsephoto.com">
-                            Email
+                        <a class="btn" href="mailto:makhafola.101snaps@gmail.com" style="display: flex; align-items: center; gap: 8px; text-decoration: none; background: var(--accent); color: white; padding: 8px 16px; border-radius: 8px;">
+                            <i class="fa-regular fa-envelope"></i> Email
                         </a>
                     </div>
-
-                    <div style="margin-top:12px">
-                        <h4 style="margin:6px 0">Follow</h4>
-                        <div style="display:flex;gap:8px">
-                            <a href="#">Instagram</a>
-                            <a href="#">Facebook</a>
+                    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                        <h4 style="margin: 0 0 10px 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6;">Follow</h4>
+                        <div style="display: flex; gap: 15px; font-size: 1.5rem;">
+                            <a href="#" style="color: #E1306C;" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" style="color: #1877F2;" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
                         </div>
                     </div>
                 </aside>
-
             </div>
         </section>
-
 
     </main>
 
@@ -526,133 +466,155 @@
         </div>
     </footer>
 
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
     <script>
-        // ------------------------------
-        // Quick interactive features
-        // ------------------------------
-        document.getElementById('year').textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', () => {
 
-        // Lightbox
-        lbClose.addEventListener('click', () => { lightbox.classList.remove('show'); lightbox.setAttribute('aria-hidden', 'true'); });
-        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) { lightbox.classList.remove('show'); lightbox.setAttribute('aria-hidden', 'true'); } });
+            /* ------------------------------
+               Footer Year
+            ------------------------------ */
+            const yearEl = document.getElementById('year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-        // Filters
-        const filterBtns = document.querySelectorAll('.filters button');
-        filterBtns.forEach(b => b.addEventListener('click', () => {
-            filterBtns.forEach(x => x.classList.remove('active'));
-            b.classList.add('active');
-            const f = b.dataset.filter;
-            document.querySelectorAll('.gallery-item').forEach(it => {
-                if (f === 'all' || it.dataset.category === f) it.style.display = 'block'; else it.style.display = 'none';
-            });
-        }));
+            /* ------------------------------
+               Lightbox
+            ------------------------------ */
+            const lightbox = document.getElementById('lightbox');
+            const lbClose = document.getElementById('lbClose');
 
-        // Package quick-fill when clicking Book on a package
-        document.querySelectorAll('[data-package]').forEach(el => {
-            el.addEventListener('click', (ev) => {
-                ev.preventDefault();
-                const val = el.dataset.package || el.textContent;
-                document.getElementById('packageSelect').value = val.trim();
-                location.hash = '#booking';
-                document.getElementById('name').focus();
-            });
-        });
+            if (lightbox && lbClose) {
+                lbClose.addEventListener('click', () => {
+                    lightbox.classList.remove('show');
+                    lightbox.setAttribute('aria-hidden', 'true');
+                });
 
-
-        // Contact/review form (local demo: adds to testimonials list)
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('cname').value || 'Anonymous';
-            const review = document.getElementById('review').value;
-            if (!review) { alert('Please write a review first.'); return; }
-
-            // In production, you'd send this to your backend or EmailJS for moderation.
-            const t = document.createElement('div'); t.className = 'tcard';
-            t.innerHTML = `<strong>\"${escapeHtml(review)}\"</strong><div class=\"small\" style=\"margin-top:10px\">— ${escapeHtml(name)}</div>`;
-            document.getElementById('testimonials').prepend(t);
-            e.target.reset();
-            alert('Thank you! Your review has been added.');
-        });
-
-        // tiny helper
-        function escapeHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
-
-        // Accessibility: keyboard close for lightbox
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { lightbox.classList.remove('show'); lightbox.setAttribute('aria-hidden', 'true'); } });
-
-    </script>
-    <script>
-        document.querySelectorAll('.filters button').forEach(button => {
-            button.addEventListener('click', () => {
-                // 1. Manage Active Button State
-                document.querySelector('.filters button.active').classList.remove('active');
-                button.classList.add('active');
-
-                const filterValue = button.getAttribute('data-pkg');
-                const items = document.querySelectorAll('.pkg, .pkg-header');
-                const grid = document.getElementById('packagesGrid');
-
-                // 2. Filter the Content
-                items.forEach(item => {
-                    const category = item.getAttribute('data-category');
-
-                    if (filterValue === 'all' || category === filterValue) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.classList.remove('show');
+                        lightbox.setAttribute('aria-hidden', 'true');
                     }
                 });
 
-                // 3. Smooth Scroll to the grid top
-                const offset = 100; // Adjust based on your sticky header height
-                const elementPosition = grid.getBoundingClientRect().top + window.pageYOffset;
-
-                window.scrollTo({
-                    top: elementPosition - offset,
-                    behavior: 'smooth'
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        lightbox.classList.remove('show');
+                        lightbox.setAttribute('aria-hidden', 'true');
+                    }
                 });
-            });
-        });
-        <script>
-            const bookButtons = document.querySelectorAll('.pkg .btn');
-            const packageSelect = document.getElementById('packageSelect');
+            }
 
-        bookButtons.forEach(button => {
+            /* ------------------------------
+               Gallery Filters
+            ------------------------------ */
+            const filterButtons = document.querySelectorAll('.filters button');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    const selectedPackage = button.dataset.package;
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    button.classList.add('active');
 
-                    // Set dropdown value
-                    packageSelect.value = selectedPackage;
-
-                    // Scroll smoothly to booking section
-                    document.getElementById('booking').scrollIntoView({
-                        behavior: 'smooth'
+                    const filter = button.dataset.filter;
+                    galleryItems.forEach(item => {
+                        const category = item.dataset.category;
+                        item.style.display = filter === 'all' || category === filter ? 'block' : 'none';
                     });
                 });
             });
+
+            /* ------------------------------
+               Package → Booking Quick Fill
+            ------------------------------ */
+            const packageSelect = document.getElementById('packageSelect');
+
+            document.querySelectorAll('[data-package]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!packageSelect) return;
+
+                    packageSelect.value = btn.dataset.package.trim();
+
+                    const bookingSection = document.getElementById('booking');
+                    if (bookingSection) bookingSection.scrollIntoView({ behavior: 'smooth' });
+
+                    const nameInput = document.getElementById('name');
+                    if (nameInput) nameInput.focus();
+                });
+            });
+
+            /* ------------------------------
+               Initialize EmailJS
+            ------------------------------ */
+            emailjs.init("V3eyO8xqVuFyunEcS");
+
+            /* ------------------------------
+               Contact / Review Form
+            ------------------------------ */
+            const contactForm = document.getElementById('contactForm');
+            const testimonials = document.getElementById('testimonials');
+
+            /* XSS protection */
+            function escapeHtml(str) {
+                return String(str)
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+            if (contactForm && testimonials) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const name = document.getElementById('cname') ?.value || 'Anonymous';
+                    const email = document.getElementById('cemail') ?.value || 'Not provided';
+                    const review = document.getElementById('review') ?.value;
+
+                    if (!review.trim()) {
+                        alert('Please write a review first.');
+                        return;
+                    }
+
+                    /* SEND EMAIL */
+                    const REVIEW_KEY = "V3eyO8xqVuFyunEcS"; // Or your other key dSEQQy7...
+
+                    emailjs.send(
+                        "service_2jk4hc3",
+                        "template_omuevun",
+                        { name, email, review },
+                        REVIEW_KEY // Pass the Review Key here
+                    ).then(
+                        () => console.log("Review Email sent successfully"),
+                        (error) => {
+                            console.error("Review Error:", error);
+                            alert("Review failed: " + error.text);
+                        }
+                    );
+
+                    /* UPDATE TESTIMONIALS */
+                    const card = document.createElement('div');
+                    card.className = 'tcard';
+                    card.innerHTML = `
+                    <strong>“${escapeHtml(review)}”</strong>
+                    <div class="small" style="margin-top:10px">
+                        — ${escapeHtml(name)}
+                    </div>
+                `;
+                    testimonials.prepend(card);
+                    contactForm.reset();
+                    alert('Thank you! Your review has been submitted.');
+                });
+            }
+
+        });
     </script>
 
-
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <!-- Optional external JS -->
     <script src="booking.js"></script>
     <script src="gallery.js"></script>
 
-    <!--
-      NOTES:
-      - Replace the sample Unsplash image URLs with your own images (same aspect ratios work best).
-      - To enable email sending without a backend: create an account at https://emailjs.com, then replace
-        emailjs.init('YOUR_EMAILJS_USER_ID'), 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs.
-      - Optimize images to WebP and use properly sized versions for performance. Keep lazy loading on images.
-      - If you want to accept payments: integrate PayFast, PayPal, or Stripe (requires server/secure setup).
-      - Want a multi-page site? Copy sections to separate HTML files and link them, or expand this single-page app.
-
-      Next steps I can help with:
-        • Replace placeholders with your real images and copy
-        • Add Instagram feed embed
-        • Add Stripe/PayFast deposit flow
-        • Convert to a small backend (Node/Express) to store bookings
-    -->
 </body>
 </html>
