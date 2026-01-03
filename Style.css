@@ -381,6 +381,34 @@ h2.section-title {
     border-radius: 10px;
     cursor: pointer;
 }
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(2,6,23,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 80;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s;
+    cursor: zoom-out; /* NEW: visual hint to close */
+}
+
+.lightbox.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox img {
+    max-width: 92%;
+    max-height: 86%;
+    border-radius: 8px;
+    cursor: default; /* NEW: prevents the close cursor from showing over the photo */
+}
+
+/* ... keep your existing .close and .lightbox-content styles ... */
 /* Spinner for Lightbox Loading */
 #lbContent:empty::after {
     content: "Opening Gallery...";
