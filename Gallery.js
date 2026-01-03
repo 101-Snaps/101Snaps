@@ -32,6 +32,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Close Lightbox
+    // UPDATED: Close Lightbox when clicking the close button...
     document.getElementById("lbClose").onclick = () => lightbox.classList.remove("show");
+
+    // NEW: Close Lightbox when clicking anywhere on the dark background
+    lightbox.addEventListener("click", (e) => {
+        // If the user clicks the background (the lightbox div itself) 
+        // and NOT the actual image inside it, close it.
+        if (e.target === lightbox) {
+            lightbox.classList.remove("show");
+        }
+    });
 });
