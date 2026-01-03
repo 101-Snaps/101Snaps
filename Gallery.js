@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("lightbox");
     const lbContent = document.getElementById("lbContent");
 
-    // Click image to view
+    // 1. Click image to view
     galleryItems.forEach(item => {
         item.addEventListener("click", () => {
             const fullImg = item.querySelector("img").src;
@@ -13,51 +13,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Filter Logic
+    // 2. Filter Logic
     filterButtons.forEach(button => {
         button.addEventListener("click", () => {
             const filter = button.dataset.filter;
-
-            document.querySelector(".filters button.active").classList.remove("active");
+            const activeBtn = document.querySelector(".filters button.active");
+            if (activeBtn) activeBtn.classList.remove("active");
             button.classList.add("active");
 
             document.querySelectorAll(".gallery-group").forEach(group => {
                 const category = group.dataset.category;
-                if (filter === "all" || category === filter) {
-                    group.style.display = "block";
-                } else {
-                    group.style.display = "none";
-                }
+                group.style.display = (filter === "all" || category === filter) ? "block" : "none";
             });
         });
     });
-    // ... existing gallery click and filter code ...
 
-// NEW: Close Lightbox logic
-lightbox.addEventListener("click", (e) => {
-    // This checks if you clicked the dark background (the lightbox itself)
-    // or the "close" button. 
-    // It will NOT close if you click the actual image (lbContent).
-    if (e.target === lightbox || e.target.closest('#lbClose')) {
-        lightbox.classList.remove("show");
-    }
-});
-
-// Optional: Prevent clicking the image from closing the lightbox 
-// if your lbContent fills the whole screen.
-lbContent.addEventListener("click", (e) => {
-    e.stopPropagation(); 
-});
-
-    // UPDATED: Close Lightbox when clicking the close button...
-    document.getElementById("lbClose").onclick = () => lightbox.classList.remove("show");
-
-    // NEW: Close Lightbox when clicking anywhere on the dark background
+    // 3. COMBINED CLOSE LOGIC: Background, Close Button, and Image protection
     lightbox.addEventListener("click", (e) => {
-        // If the user clicks the background (the lightbox div itself) 
-        // and NOT the actual image inside it, close it.
-        if (e.target === lightbox) {
+        // Close if clicking the dark background (the lightbox itself) 
+        // OR the close button (lbClose)
+        if (e.target === lightbox || e.target.id === "lbClose" || e.target.closest("#lbClose")) {
             lightbox.classList.remove("show");
         }
+    });
+
+    // Prevent clicking the photo itself from closing the lightbox
+    lbContent.addEventListener("click", (e) => {
+        e.stopPropagation(); 
     });
 });
