@@ -333,11 +333,11 @@ h2.section-title {
         transform: translateY(0);
     }
 
-/* Lightbox */
+/* Lightbox Container */
 .lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(2,6,23,0.9);
+    background: rgba(2, 6, 23, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -345,28 +345,16 @@ h2.section-title {
     opacity: 0;
     pointer-events: none;
     transition: all .2s;
+    cursor: zoom-out; /* Click background to close hint */
 }
 
-    .lightbox.show {
-        opacity: 1;
-        pointer-events: auto;
-    }
+/* Visibility State */
+.lightbox.show {
+    opacity: 1;
+    pointer-events: auto;
+}
 
-    .lightbox img {
-        max-width: 92%;
-        max-height: 86%;
-        border-radius: 8px;
-    }
-
-    .lightbox .close {
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        padding: 8px 12px;
-        border-radius: 8px;
-        background: var(--card);
-        cursor: pointer;
-    }
+/* Content Area */
 .lightbox-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -376,44 +364,38 @@ h2.section-title {
     overflow-y: auto;
 }
 
+/* The Enlarged Image */
+.lightbox img {
+    max-width: 92%;
+    max-height: 86%;
+    border-radius: 8px;
+    cursor: default; /* Keep normal cursor over the photo */
+}
+
+/* Close Button */
+.lightbox .close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--card);
+    cursor: pointer;
+    z-index: 90;
+}
+
+/* Individual Gallery Item inside Lightbox (if used) */
 .lb-img {
     width: 100%;
     border-radius: 10px;
     cursor: pointer;
 }
-/* Lightbox */
-.lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(2,6,23,0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 80;
-    opacity: 0;
-    pointer-events: none;
-    transition: all .2s;
-    cursor: zoom-out; /* NEW: visual hint to close */
-}
 
-.lightbox.show {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.lightbox img {
-    max-width: 92%;
-    max-height: 86%;
-    border-radius: 8px;
-    cursor: default; /* NEW: prevents the close cursor from showing over the photo */
-}
-
-/* ... keep your existing .close and .lightbox-content styles ... */
 /* Spinner for Lightbox Loading */
 #lbContent:empty::after {
     content: "Opening Gallery...";
     color: var(--muted);
-    font-family: "Playfair Display";
+    font-family: "Playfair Display", serif;
     font-size: 1.2rem;
     position: absolute;
     top: 50%;
@@ -423,17 +405,8 @@ h2.section-title {
 }
 
 @keyframes pulse {
-    0% {
-        opacity: 0.5;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0.5;
-    }
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
 /* Packages */
