@@ -31,6 +31,23 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     });
+    // ... existing gallery click and filter code ...
+
+// NEW: Close Lightbox logic
+lightbox.addEventListener("click", (e) => {
+    // This checks if you clicked the dark background (the lightbox itself)
+    // or the "close" button. 
+    // It will NOT close if you click the actual image (lbContent).
+    if (e.target === lightbox || e.target.closest('#lbClose')) {
+        lightbox.classList.remove("show");
+    }
+});
+
+// Optional: Prevent clicking the image from closing the lightbox 
+// if your lbContent fills the whole screen.
+lbContent.addEventListener("click", (e) => {
+    e.stopPropagation(); 
+});
 
     // UPDATED: Close Lightbox when clicking the close button...
     document.getElementById("lbClose").onclick = () => lightbox.classList.remove("show");
