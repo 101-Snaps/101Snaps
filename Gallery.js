@@ -1,73 +1,87 @@
 document.addEventListener("DOMContentLoaded", () => {
+
     const galleryItems = document.querySelectorAll(".gallery-item");
+
     const filterButtons = document.querySelectorAll(".filters button");
+
     const lightbox = document.getElementById("lightbox");
+
     const lbContent = document.getElementById("lbContent");
-    const lbClose = document.getElementById("lbClose");
 
-    // --- 1. VIEW MORE / SHOW LESS LOGIC ---
-    document.querySelectorAll('.view-more-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const grid = this.parentElement.querySelector('.gallery-grid');
-            grid.classList.toggle('collapsed');
-            
-            if (grid.classList.contains('collapsed')) {
-                this.textContent = 'View Full Gallery';
-                // Scrolls user back to the top of the category when closing
-                this.parentElement.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                this.textContent = 'Show Less';
-            }
-        });
-    });
 
-    // --- 2. LIGHTBOX LOGIC ---
+
+    // 1. Click image to view
+
     galleryItems.forEach(item => {
+
         item.addEventListener("click", () => {
-            const imgSrc = item.querySelector("img").src;
-            const imgAlt = item.querySelector("img").alt;
-            lbContent.innerHTML = `<img src="${imgSrc}" alt="${imgAlt}">`;
+
+            const fullImg = item.querySelector("img").src;
+
+            lbContent.innerHTML = `<img src="${fullImg}" style="max-width:90%; max-height:80vh; border-radius:10px;">`;
+
             lightbox.classList.add("show");
-            document.body.style.overflow = 'hidden'; 
+
         });
+
     });
 
-    const closeLightbox = () => {
-        lightbox.classList.remove("show");
-        document.body.style.overflow = ''; 
-        setTimeout(() => { lbContent.innerHTML = ''; }, 200); 
-    };
 
-    lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox || e.target === lbClose) closeLightbox();
-    });
 
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && lightbox.classList.contains("show")) closeLightbox();
-    });
+    // 2. Filter Logic
 
-    // --- 3. FILTER LOGIC ---
     filterButtons.forEach(button => {
+
         button.addEventListener("click", () => {
-            const filter = button.getAttribute("data-filter");
-            
-            document.querySelector(".filters button.active")?.classList.remove("active");
+
+            const filter = button.dataset.filter;
+
+            const activeBtn = document.querySelector(".filters button.active");
+
+            if (activeBtn) activeBtn.classList.remove("active");
+
             button.classList.add("active");
 
+
+
             document.querySelectorAll(".gallery-group").forEach(group => {
+
                 const category = group.dataset.category;
-                const isMatch = filter === "all" || category === filter;
-                group.style.display = isMatch ? "block" : "none";
-                
-                // Optional: If user filters for a specific category, 
-                // expand it automatically for a better experience
-                if(filter !== "all" && isMatch) {
-                    const grid = group.querySelector('.gallery-grid');
-                    const btn = group.querySelector('.view-more-btn');
-                    grid.classList.remove('collapsed');
-                    if(btn) btn.textContent = 'Show Less';
-                }
+
+                group.style.display = (filter === "all" || category === filter) ? "block" : "none";
+
             });
+
         });
+
     });
+
+
+
+    // 3. COMBINED CLOSE LOGIC: Background, Close Button, and Image protection
+
+    lightbox.addEventListener("click", (e) => {
+
+        // Close if clicking the dark background (the lightbox itself) 
+
+        // OR the close button (lbClose)
+
+        if (e.target === lightbox || e.target.id === "lbClose" || e.target.closest("#lbClose")) {
+
+            lightbox.classList.remove("show");
+
+        }
+
+    });
+
+
+
+    // Prevent clicking the photo itself from closing the lightbox
+
+    lbContent.addEventListener("click", (e) => {
+
+        e.stopPropagation(); 
+
+    });
+
 });
