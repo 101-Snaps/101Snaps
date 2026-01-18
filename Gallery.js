@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         item.addEventListener("click", () => {
 
-            const fullImg = item.querySelector("img").src;
+            const fullImg = item.querySelector("img").getAttribute("src");
 
             lbContent.innerHTML = `<img src="${fullImg}" style="max-width:90%; max-height:80vh; border-radius:10px;">`;
 
