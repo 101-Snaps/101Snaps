@@ -12,15 +12,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 1. Click image to view
 
-    galleryItems.forEach(item => {
+  galleryItems.forEach(item => {
+    item.addEventListener("click", () => {
+        const imgElement = item.querySelector("img");
+        
+        // FIX: Use getAttribute('src') instead of .src 
+        // This pulls the literal text "Images/Graduations/grad1.jpg"
+        const relativePath = imgElement.getAttribute("src");
+        const altText = imgElement.alt;
 
-        item.addEventListener("click", () => {
-
-            const fullImg = item.querySelector("img").src;
-
-            lbContent.innerHTML = `<img src="${fullImg}" style="max-width:90%; max-height:80vh; border-radius:10px;">`;
-
-            lightbox.classList.add("show");
+        lbContent.innerHTML = `<img src="${relativePath}" alt="${altText}" style="max-width:90%; max-height:80vh; border-radius:10px;">`;
+        lightbox.classList.add("show");
+        document.body.style.overflow = 'hidden';
 
         });
 
