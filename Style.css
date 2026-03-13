@@ -484,7 +484,30 @@ form select {
             color: #071021;
         }
 
+.pkg.special{
+    border:2px solid rgba(255,215,0,0.6);
+    background:rgba(255,255,255,0.05);
+    backdrop-filter: blur(4px);
+    position:relative;
+}
 
+.pkg.special::before{
+    content:"LIMITED OFFER";
+    position:absolute;
+    top:-12px;
+    right:-12px;
+    padding:6px 12px;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+    
+    color:#fff;
+    background:rgba(255,255,255,0.1); /* transparent */
+    border:1px solid rgba(255,255,255,0.4);
+    backdrop-filter: blur(6px);
+    
+    border-radius:6px;
+}
 form label {
     display: block;
     margin-bottom: 6px;
