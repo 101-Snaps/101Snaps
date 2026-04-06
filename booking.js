@@ -326,9 +326,9 @@ function populatePackageDropdown() {
         // Add fallback options
         const fallbackPackages = [
            // Graduations
-    'Grad Mini — R1200',
-    'Grad Standard — R2000',
-    'Grad Deluxe — R2800',
+    'Grad Mini — R750',
+    'Grad Standard — R1050',
+    'Grad Deluxe — R1500',
     'TUT Graduate Special — R750',
 
     // Birthdays
